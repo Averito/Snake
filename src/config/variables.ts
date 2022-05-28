@@ -9,5 +9,6 @@ export const config = {
 	initialSnakeSize: 4,
 	initialSnakeX: 160,
 	initialSnakeY: 160,
-	berryColor: 0xa00034
+	berryColor: 0xa00034,
+	berryRadius: 4
 }

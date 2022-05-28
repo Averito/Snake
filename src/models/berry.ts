@@ -31,7 +31,7 @@ export class Berry {
 		const berry = new Graphics()
 		berry.beginFill(config.berryColor)
 		// Добавляем по 8 т.к. нужно компенсировать "паддинги" клетки
-		berry.drawCircle(x + 8, y + 8, 4)
+		berry.drawCircle(x + 8, y + 8, config.berryRadius)
 		berry.endFill()
 
 		this.berryContainer.addChild(berry)

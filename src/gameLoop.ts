@@ -1,4 +1,4 @@
-import { config } from "./config/variables"
+import { config } from './config/variables'
 
 export class GameLoop {
 	private draw = (): void => {}
@@ -17,6 +17,6 @@ export class GameLoop {
 
 			this.update()
 			this.draw()
-		}, config.gameSpeed);
+		}, config.gameSpeed)
 	}
 }

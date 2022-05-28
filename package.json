@@ -5,13 +5,20 @@
 	"main": "src/main.ts",
 	"scripts": {
 		"build": "webpack build",
-		"dev": "webpack serve"
+		"dev": "webpack serve",
+		"lint": "eslint --fix ./src/**/*.ts"
 	},
 	"author": "Averito",
 	"license": "ISC",
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.26.0",
+		"@typescript-eslint/parser": "^5.26.0",
+		"eslint": "^8.16.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.0.0",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",
+		"prettier": "^2.6.2",
 		"ts-loader": "^9.3.0",
 		"typescript": "^4.7.2",
 		"webpack": "^5.72.1",

@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "arrowParens": "avoid",
+        "useTabs": true,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "jsxSingleQuote": true,
+        "trailingComma": "none",
+        "semi": false,
+        "endOfLine": "auto",
+        "bracketSpacing": true,
+        "bracketSameLine": false,
+        "proseWrap": "never"
+      }
+    ],
+    "no-console": "warn",
+    "complexity": "error",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-empty-function": "off"
+  }
+}

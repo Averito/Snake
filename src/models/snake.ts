@@ -1,13 +1,13 @@
-import { Application, Graphics, Container } from "pixi.js"
+import { Application, Graphics, Container } from 'pixi.js'
 
-import { config } from "./../config/variables"
-import { Coordinates } from "../types/coordinates"
-import { Berry } from "./berry"
-import { Score } from "./score"
+import { config } from './../config/variables'
+import { Coordinates } from '../types/coordinates'
+import { Berry } from './berry'
+import { Score } from './score'
 
 export class Snake {
 	private app: Application = {} as Application
-	private tailsContainer: Container = {} as Container 
+	private tailsContainer: Container = {} as Container
 	private tails: Coordinates[] = []
 	private score: Score = {} as Score
 	private size = config.initialSnakeSize
@@ -27,23 +27,6 @@ export class Snake {
 		this.control()
 	}
 
-	private down() {
-		this.dy = config.cellSize
-		this.dx = 0
-	}
-	private up() {
-		this.dy = -config.cellSize
-		this.dx = 0
-	}
-	private left() {
-		this.dx = -config.cellSize
-		this.dy = 0
-	}
-	private right() {
-		this.dx = config.cellSize
-		this.dy = 0
-	}
-
 	public update(berry: Berry) {
 		this.x += this.dx
 		this.y += this.dy
@@ -59,7 +42,7 @@ export class Snake {
 		} else if (this.y >= config.height) {
 			this.y = 0
 		}
-		
+
 		this.tails.unshift({ x: this.x, y: this.y })
 
 		if (this.tails.length > this.size) {
@@ -81,16 +64,6 @@ export class Snake {
 		})
 	}
 
-	private death() {
-		this.x = config.initialSnakeX
-		this.y = config.initialSnakeY
-		this.dx = config.cellSize
-		this.dy = 0
-		this.tails = []
-		this.size = config.initialSnakeSize
-		this.score.resetScore()
-	}
-
 	public draw() {
 		this.tails.forEach((tail, idx) => {
 			const partOfSnake = new Graphics()
@@ -107,9 +80,22 @@ export class Snake {
 			this.tailsContainer.addChildAt(partOfSnake, idx)
 
 			if (this.tailsContainer.children.length > this.size) {
-				this.tailsContainer.removeChildren(this.size, this.tailsContainer.children.length)
+				this.tailsContainer.removeChildren(
+					this.size,
+					this.tailsContainer.children.length
+				)
 			}
 		})
+	}
+
+	private death() {
+		this.x = config.initialSnakeX
+		this.y = config.initialSnakeY
+		this.dx = config.cellSize
+		this.dy = 0
+		this.tails = []
+		this.size = config.initialSnakeSize
+		this.score.resetScore()
 	}
 
 	private control() {
@@ -124,5 +110,22 @@ export class Snake {
 				this.right()
 			}
 		})
+	}
+
+	private down() {
+		this.dy = config.cellSize
+		this.dx = 0
+	}
+	private up() {
+		this.dy = -config.cellSize
+		this.dx = 0
+	}
+	private left() {
+		this.dx = -config.cellSize
+		this.dy = 0
+	}
+	private right() {
+		this.dx = config.cellSize
+		this.dy = 0
 	}
 }

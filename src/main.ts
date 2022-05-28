@@ -12,14 +12,18 @@ class Game {
 	private snake: Snake = {} as Snake
 	private berry: Berry = {} as Berry
 
-	constructor(options: IApplicationOptions, container: HTMLElement) {
+	constructor(
+		options: IApplicationOptions,
+		container: HTMLElement,
+		selectorForScore: string
+	) {
 		const app = new Application(options)
 		container.appendChild(app.view)
 		this.app = app
 
 		this.setBackground()
 
-		const score = new Score('#berryCount')
+		const score = new Score(selectorForScore)
 		this.berry = new Berry(this.app)
 		this.snake = new Snake(this.app, score)
 
@@ -52,5 +56,6 @@ new Game(
 		backgroundColor: config.backgroundColor,
 		antialias: true
 	},
-	document.querySelector('#game') as HTMLElement
+	document.querySelector('#game') as HTMLElement,
+	'#berryCount'
 )
