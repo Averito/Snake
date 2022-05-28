@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			padding: 0;
+			margin: 0;
+			background-color: #323232;
+		}
+		canvas {
+			border-radius: 5px;
+		}
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+		}
+		.score {
+			background: #161618;
+			border-radius: 8px;
+			padding: 10px 30px;
+			margin: 0 0 10px;
+		}
+		.score > p {
+			color: #a00034;
+			margin: 0;
+			font-size: 22px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+		}
+	</style>
+	<title>Pixi.js - snake game</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="score">
+			<p>Съедено ягод: <span id="berryCount">0</span></p>
+		</div>
+		<div id="game"><!--Сюда добавляется канвас--></div>
+	</div>
+</body>
+</html>
