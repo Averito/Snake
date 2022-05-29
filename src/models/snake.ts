@@ -101,12 +101,16 @@ export class Snake {
 	private control() {
 		document.addEventListener('keydown', event => {
 			if (event.code == 'KeyW') {
+				if (this.dy > 0) return
 				this.up()
 			} else if (event.code == 'KeyA') {
+				if (this.dx > 0) return
 				this.left()
 			} else if (event.code == 'KeyS') {
+				if (this.dy < 0) return
 				this.down()
 			} else if (event.code == 'KeyD') {
+				if (this.dx < 0) return
 				this.right()
 			}
 		})
